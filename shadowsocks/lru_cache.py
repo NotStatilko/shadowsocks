@@ -22,6 +22,15 @@ import collections
 import logging
 import time
 
+from sys import version_info
+
+# MutableMapping was removed from collections on
+# 3.10+. Now it's a part of collections.abc. Patch.
+if version_info[:2] >= (3, 9):
+    from collections.abc import MutableMapping
+else:
+    from collections import MutableMapping
+
 
 # this LRUCache is optimized for concurrency, not QPS
 # n: concurrency, keys stored in the cache
@@ -31,7 +40,7 @@ import time
 #       as sweep() causes long pause
 
 
-class LRUCache(collections.MutableMapping):
+class LRUCache(MutableMapping):
     """This class is not thread safe"""
 
     def __init__(self, timeout=60, close_callback=None, *args, **kwargs):
