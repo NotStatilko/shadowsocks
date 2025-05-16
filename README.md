@@ -1,8 +1,9 @@
 shadowsocks
 ===========
 
-[![PyPI version]][PyPI]
-[![Build Status]][Travis CI]
+`/*`\
+This is a bug-fixed fork of the **Shadowsocks** for the [**pyoutline**](https://github.com/NonProjects/pyoutline) (and nothing more).\
+`*/`
 
 A fast tunnel proxy that helps you bypass firewalls.
 
@@ -21,17 +22,17 @@ Server
 Debian / Ubuntu:
 
     apt-get install python-pip
-    pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+    pip install git+https://github.com/NotStatilko/shadowsocks.git@master
 
 CentOS:
 
     yum install python-setuptools && easy_install pip
-    pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+    pip install git+https://github.com/NotStatilko/shadowsocks.git@master
 
 For CentOS 7, if you need AEAD ciphers, you need install libsodium
 ```
 dnf install libsodium python34-pip
-pip3 install  git+https://github.com/shadowsocks/shadowsocks.git@master
+pip3 install git+https://github.com/NotStatilko/shadowsocks.git@master
 ```
 Linux distributions with [snap](http://snapcraft.io/):
 
@@ -82,16 +83,4 @@ You can find all the documentation in the [Wiki](https://github.com/shadowsocks/
 License
 -------
 
-Apache License
-
-
-
-
-
-
-
-[Build Status]:      https://img.shields.io/travis/shadowsocks/shadowsocks/master.svg?style=flat
-[PyPI]:              https://pypi.python.org/pypi/shadowsocks
-[PyPI version]:      https://img.shields.io/pypi/v/shadowsocks.svg?style=flat
-[Travis CI]:         https://travis-ci.org/shadowsocks/shadowsocks
-
+[Apache License](LICENSE)
