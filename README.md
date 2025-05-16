@@ -2,7 +2,13 @@ shadowsocks
 ===========
 
 `/*`\
-This is a bug-fixed fork of the **Shadowsocks** for the [**pyoutline**](https://github.com/NonProjects/pyoutline) (and nothing more).\
+This is a bug-fixed fork of the **Shadowsocks** for the [**pyoutline**](https://github.com/NonProjects/pyoutline) (and nothing more).
+
+#### You can install the latest **stable** version from [**PyPI**](https://pypi.org/project/nonshadowsocks/) with `pip`:
+```bash
+pip install -U nonshadowsocks
+```
+
 `*/`
 
 A fast tunnel proxy that helps you bypass firewalls.
