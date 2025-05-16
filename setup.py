@@ -2,20 +2,20 @@ import codecs
 from setuptools import setup
 
 
-with codecs.open('README.rst', encoding='utf-8') as f:
+with codecs.open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name="shadowsocks",
+    name="nonshadowsocks",
     version="3.0.1",
     license='http://www.apache.org/licenses/LICENSE-2.0',
     description="A fast tunnel proxy that help you get through firewalls",
-    author='clowwindy',
-    author_email='clowwindy42@gmail.com',
-    url='https://github.com/shadowsocks/shadowsocks',
+    author='clowwindy, NotStatilko',
+    author_email='clowwindy42@gmail.com, thenonproton@pm.me',
+    url='https://github.com/NotStatilko/shadowsocks',
     packages=['shadowsocks', 'shadowsocks.crypto'],
     package_data={
-        'shadowsocks': ['README.rst', 'LICENSE']
+        'shadowsocks': ['README.md', 'LICENSE']
     },
     install_requires=[],
     entry_points="""
@@ -29,8 +29,6 @@ setup(
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Internet :: Proxy Servers',
