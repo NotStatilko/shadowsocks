@@ -218,21 +218,21 @@ class IPNetwork(object):
         list(map(self.add_network, addrs))
 
     def add_network(self, addr):
-        if addr is "":
+        if addr == "":
             return
         block = addr.split('/')
         addr_family = is_ip(block[0])
         addr_len = IPNetwork.ADDRLENGTH[addr_family]
-        if addr_family is socket.AF_INET:
+        if addr_family == socket.AF_INET:
             ip, = struct.unpack("!I", socket.inet_aton(block[0]))
-        elif addr_family is socket.AF_INET6:
+        elif addr_family == socket.AF_INET6:
             hi, lo = struct.unpack("!QQ", inet_pton(addr_family, block[0]))
             ip = (hi << 64) | lo
         else:
             raise Exception("Not a valid CIDR notation: %s" % addr)
-        if len(block) is 1:
+        if len(block) == 1:
             prefix_size = 0
-            while (ip & 1) == 0 and ip is not 0:
+            while (ip & 1) == 0 and ip != 0:
                 ip >>= 1
                 prefix_size += 1
             logging.warn("You did't specify CIDR routing prefix size for %s, "
@@ -242,18 +242,18 @@ class IPNetwork(object):
             ip >>= prefix_size
         else:
             raise Exception("Not a valid CIDR notation: %s" % addr)
-        if addr_family is socket.AF_INET:
+        if addr_family == socket.AF_INET:
             self._network_list_v4.append((ip, prefix_size))
         else:
             self._network_list_v6.append((ip, prefix_size))
 
     def __contains__(self, addr):
         addr_family = is_ip(addr)
-        if addr_family is socket.AF_INET:
+        if addr_family == socket.AF_INET:
             ip, = struct.unpack("!I", socket.inet_aton(addr))
             return any(map(lambda n_ps: n_ps[0] == ip >> n_ps[1],
                            self._network_list_v4))
-        elif addr_family is socket.AF_INET6:
+        elif addr_family == socket.AF_INET6:
             hi, lo = struct.unpack("!QQ", inet_pton(addr_family, addr))
             ip = (hi << 64) | lo
             return any(map(lambda n_ps: n_ps[0] == ip >> n_ps[1],
